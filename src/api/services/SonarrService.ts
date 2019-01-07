@@ -12,18 +12,18 @@ export class SonarrService {
         series.forEach(element => {
             let elementInList = listOfSeries.find(s => s.tvdbId === element.tvdbId);
             if (elementInList) {
-                elementInList.seasons.push({ seasonNumber: element.seasonNumber, monitored: true });
+                elementInList.seasons.push({ seasonNumber: element.seasonNumber, monitored: false });
             } else {
                 listOfSeries.push({
                     tvdbId: element.tvdbId,
                     title: element.title,
                     titleSlug: element.titleSlug,
-                    monitored: true,
+                    monitored: false,
                     seasonFolder: true,
                     qualityProfileId: settings.profile,
                     seasons: [{
                         seasonNumber: element.seasonNumber,
-                        monitored: true
+                        monitored: false
                     }],
                     path: `${settings.folder}${element.title}`
                 });
